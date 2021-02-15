@@ -1,6 +1,10 @@
-import { makeStyles ,Grid, Paper, Box, Typography } from '@material-ui/core'
 import React from 'react'
 import Layout from '../components/Layout'
+import { makeStyles ,Grid, Paper, Box, Typography } from '@material-ui/core'
+import CategoryIcon from '@material-ui/icons/Category';
+import GroupRoundedIcon from '@material-ui/icons/GroupRounded';
+import CreditCardRoundedIcon from '@material-ui/icons/CreditCardRounded';
+import ReceiptRoundedIcon from '@material-ui/icons/ReceiptRounded';
 const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1,
@@ -17,39 +21,39 @@ const Dashboard = () => {
         <Layout>
            <Grid container spacing={3}>
         <Grid item md={3}>
-        <Paper className={classes.paper} className="tile-stats">
+        <Paper  className={`tile-stats ${classes.paper}`}>
               <Box  display='flex' flexWrap="nowrap" alignItems="centers" justifyContent="space-between">
               <div className="count">2</div>
-                  <div>icon</div>
+                  <div><CategoryIcon/></div>
               </Box>
           <Typography variant="h6" component="div" alignItems="flex-start">Total Products</Typography>
           </Paper>
         </Grid>
         <Grid item md={3}>
-        <Paper className={classes.paper} className="tile-stats">
+        <Paper className={`tile-stats ${classes.paper}`}>
               <Box  display='flex' flexWrap="nowrap" alignItems="centers" justifyContent="space-between">
                   <div className="count">2</div>
-                  <div>icon</div>
+                  <div><GroupRoundedIcon/></div>
               </Box>
-          <Typography variant="h6" component="div" alignItems="flex-start">Total Products</Typography>
+          <Typography variant="h6" component="div" alignItems="flex-start">Total Customers</Typography>
           </Paper>
         </Grid>
         <Grid item md={3}>
-        <Paper className={classes.paper} className="tile-stats">
+        <Paper  className={`tile-stats ${classes.paper}`}>
               <Box  display='flex' flexWrap="nowrap" alignItems="centers" justifyContent="space-between">
               <div className="count">2</div>
-                  <div>icon</div>
+                  <div><CreditCardRoundedIcon/></div>
               </Box>
-          <Typography variant="h6" component="div" alignItems="flex-start">Total Products</Typography>
+          <Typography variant="h6" component="div" alignItems="flex-start">Total Estimates</Typography>
           </Paper>
         </Grid>
         <Grid item md={3}>
-          <Paper className={classes.paper} className="tile-stats">
+          <Paper  className={`tile-stats ${classes.paper}`}>
               <Box  display='flex' flexWrap="nowrap" alignItems="centers" justifyContent="space-between">
               <div className="count">2</div>
-                  <div>icon</div>
+                  <div><ReceiptRoundedIcon/></div>
               </Box>
-          <Typography variant="h6" component="div" alignItems="flex-start">Total Products</Typography>
+          <Typography variant="h6" component="div" alignItems="flex-start">Total Invoice</Typography>
           </Paper>
         </Grid>
       </Grid>

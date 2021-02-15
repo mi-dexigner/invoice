@@ -8,6 +8,7 @@ import {
 import Login from './components/Login';
 import Forgot from './components/Forgot';
 import Dashboard from './pages/Dashboard';
+import Customer from './pages/Customer';
 const THEME = createMuiTheme({
   typography: {
    "fontFamily": `"Roboto", "Helvetica", "Arial", sans-serif`,
@@ -24,6 +25,7 @@ const App = () => {
     <Router>
       <Switch>
       <Route exact path="/" component={Dashboard} />
+      <Route exact path="/customer" component={Customer} />
       <Route exact path="/login" component={Login} />
       <Route exact path="/forgot-password" component={Forgot} />
       </Switch>

@@ -29,6 +29,57 @@ body {
   overflow: hidden;
   color: #fff;
 }
+.sidebar > hr {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #1010102d;
+}
+.sidebar__header {
+  display: flex;
+  border-bottom: 1px solid #1010102d;
+  padding: 13px;
+  align-items: center;
+}
+.sidebar__header > .MuiAvatar-root{
+  margin-right: 15px;
+}
+.sidebar__header >h2 {
+  font-size: 15px;
+  font-weight: 900;
+  margin-bottom: 5px;
+}
+.sidebarOption {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  padding-left: 2px;
+  cursor: pointer;
+  line-height: 24px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.sidebarOption >a {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  line-height: 26px;
+  font-weight: 400;
+  color: #f3f4fa;
+  text-decoration: none;
+}
+.sidebarOption:hover {
+  opacity: 0.9; /*adds an extra affect*/
+  background-color: #340e36;
+}
+
+.sidebarOption__icon {
+  font-size: 25px !important;
+  margin-right: 10px;
+}
+
+.sidebarOption__name{
+  padding: 10px 0;
+}
 .containArea {
   width: 100%;
   min-width: 0px;
