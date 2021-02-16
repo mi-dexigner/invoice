@@ -1,6 +1,5 @@
 import { Avatar } from '@material-ui/core'
 import React from 'react'
-import ExitToAppRoundedIcon from '@material-ui/icons/ExitToAppRounded';
 import SettingsRoundedIcon from '@material-ui/icons/SettingsRounded';
 import BarChartRoundedIcon from '@material-ui/icons/BarChartRounded';
 import ReceiptRoundedIcon from '@material-ui/icons/ReceiptRounded';
@@ -20,11 +19,10 @@ const Sidebar = () => {
            </div>
            <SidebarItem Icon={DashboardRoundedIcon} title="Dashboard" />
            <SidebarItem Icon={GroupRoundedIcon} title="Customer" url="customer"  />
-           <SidebarItem Icon={CategoryIcon} title="Product"/>
+           <SidebarItem Icon={CategoryIcon} title="Catalog" url="catalog"/>
            <SidebarItem Icon={ReceiptRoundedIcon} title="Billing" />
            <SidebarItem Icon={BarChartRoundedIcon} title="Reports" />
-           <SidebarItem Icon={SettingsRoundedIcon} title="Settings" />
-           <SidebarItem Icon={ExitToAppRoundedIcon} title="Logout" />
+           <SidebarItem Icon={SettingsRoundedIcon} title="Settings" url="settings" />
         </aside>
     )
 }
