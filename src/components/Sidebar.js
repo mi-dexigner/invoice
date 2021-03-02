@@ -18,11 +18,11 @@ const Sidebar = () => {
            </h2>
            </div>
            <SidebarItem Icon={DashboardRoundedIcon} title="Dashboard" />
-           <SidebarItem Icon={GroupRoundedIcon} title="Customer" url="customer"  />
-           <SidebarItem Icon={CategoryIcon} title="Catalog" url="catalog"/>
+           <SidebarItem Icon={GroupRoundedIcon} title="Customer" url="/customer"  />
+           <SidebarItem Icon={CategoryIcon} title="Catalog" url="/catalog"/>
            <SidebarItem Icon={ReceiptRoundedIcon} title="Billing" />
            <SidebarItem Icon={BarChartRoundedIcon} title="Reports" />
-           <SidebarItem Icon={SettingsRoundedIcon} title="Settings" url="settings" />
+           <SidebarItem Icon={SettingsRoundedIcon} title="Settings" url="/settings" />
         </aside>
     )
 }

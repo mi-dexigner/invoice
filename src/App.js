@@ -11,6 +11,7 @@ import Dashboard from './pages/Dashboard';
 import Customer from './pages/Customer/Index';
 import Products from './pages/Catalog/Products/Index';
 import Settings from './pages/Settings';
+import CustomerAdd from './pages/Customer/CustomerAdd';
 const THEME = createMuiTheme({
   typography: {
    "fontFamily": `"Roboto", "Helvetica", "Arial", sans-serif`,
@@ -28,6 +29,7 @@ const App = () => {
       <Switch>
       <Route exact path="/" component={Dashboard} />
       <Route exact path="/customer" component={Customer} />
+      <Route exact path="/customer/add" component={CustomerAdd} />
       <Route exact path="/catalog" component={Products} />
       <Route exact path="/settings" component={Settings} />
       <Route exact path="/login" component={Login} />

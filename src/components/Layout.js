@@ -6,12 +6,12 @@ import Sidebar from './Sidebar'
 const useStyles = makeStyles((theme: Theme) => createStyles({
     pageHeader: {
       borderBottom:'2px solid #027cc9',
-      marginBottom:theme.spacing(2)
+      marginBottom:theme.spacing(2),
     }
 
   }));
 
-const Layout = ({children,title,onclick}) => {
+const Layout = ({children,title,url}) => {
     const classes = useStyles();
     return (
         <main className="wrapper">
@@ -26,7 +26,7 @@ const Layout = ({children,title,onclick}) => {
                 </Typography>}
              </Grid>
              <Grid item md={6} justify="flex-end" container>
-             {onclick &&<Button onclick={onclick}>Add new</Button>}
+             {url &&<Button href={url}>Add new</Button>}
              </Grid>
              </Grid>
            {children}

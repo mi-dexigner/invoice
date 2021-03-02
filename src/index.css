@@ -51,8 +51,8 @@ body {
 .sidebarOption {
   display: flex;
   align-items: center;
+  padding: 13px;
   font-size: 12px;
-  padding-left: 2px;
   cursor: pointer;
   line-height: 24px;
   padding-top: 10px;
@@ -102,8 +102,13 @@ body {
   transition: all .3s ease-in-out;
   border: 2px solid #3f51b5;
 }
+.paddingLeftRight{
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+}
 .border{
   border:2px solid #3f51b5 !important;
+
 }
 .tile-stats .count {
   font-size: 38px;
