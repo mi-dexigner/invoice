@@ -22,7 +22,7 @@ const Dashboard = () => {
            <Grid container spacing={3}>
         <Grid item md={3}>
         <Paper  className={`tile-stats ${classes.paper}`}>
-              <Box  display='flex' flexWrap="nowrap" alignItems="centers" justifyContent="space-between">
+              <Box  display='flex' flexWrap="nowrap" alignItems="center" justifyContent="space-between">
               <div className="count">2</div>
                   <div><CategoryIcon/></div>
               </Box>
@@ -31,7 +31,7 @@ const Dashboard = () => {
         </Grid>
         <Grid item md={3}>
         <Paper className={`tile-stats ${classes.paper}`}>
-              <Box  display='flex' flexWrap="nowrap" alignItems="centers" justifyContent="space-between">
+              <Box  display='flex' flexWrap="nowrap" alignItems="center" justifyContent="space-between">
                   <div className="count">2</div>
                   <div><GroupRoundedIcon/></div>
               </Box>
@@ -40,7 +40,7 @@ const Dashboard = () => {
         </Grid>
         <Grid item md={3}>
         <Paper  className={`tile-stats ${classes.paper}`}>
-              <Box  display='flex' flexWrap="nowrap" alignItems="centers" justifyContent="space-between">
+              <Box  display='flex' flexWrap="nowrap" alignItems="center" justifyContent="space-between">
               <div className="count">2</div>
                   <div><CreditCardRoundedIcon/></div>
               </Box>
@@ -49,7 +49,7 @@ const Dashboard = () => {
         </Grid>
         <Grid item md={3}>
           <Paper  className={`tile-stats ${classes.paper}`}>
-              <Box  display='flex' flexWrap="nowrap" alignItems="centers" justifyContent="space-between">
+              <Box  display='flex' flexWrap="nowrap" alignItems="center" justifyContent="space-between">
               <div className="count">2</div>
                   <div><ReceiptRoundedIcon/></div>
               </Box>
