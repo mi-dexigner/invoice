@@ -1,8 +1,9 @@
 import { makeStyles, createStyles,Grid, Typography  } from '@material-ui/core'
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { Link,Redirect } from 'react-router-dom';
 import Header from './Header'
 import Sidebar from './Sidebar'
+import { useStateValue } from '../StateProvider';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
     pageHeader: {
@@ -13,8 +14,11 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
   }));
 
 const Layout = ({children,title,url}) => {
+  const [{user}, dispatch] = useStateValue();
     const classes = useStyles();
     return (
+      <>
+      {!user ? <Redirect to={`/login`} noThrow />:null}
         <main className="wrapper">
             <Sidebar />
            <div className="containArea">
@@ -35,6 +39,7 @@ const Layout = ({children,title,url}) => {
            </div>
 
         </main>
+        </>
     )
 }
 

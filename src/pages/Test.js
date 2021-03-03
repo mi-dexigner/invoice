@@ -10,13 +10,17 @@ const Test = () => {
             setImage(e.target.files[0]);
         }
     }
+    var metadata = {
+        contentType: 'image/jpeg',
+      };
     const handleUpload = () =>{
-        const uploadTask = storage.ref(`images/${image.name}`).put(image);
+       
+        const uploadTask = storage.ref(`images/${image.name}`).put(image,metadata);
         uploadTask.on(
             "state_changed",
             snapshot=>{
                 const progress = Math.round(
-                    (snapshot.bytestTransFerred / snapshot.totalBytes) * 100
+                    (snapshot.bytesTransferred / snapshot.totalBytes) * 100
                 );
                 setProgress(progress);
             },
@@ -27,8 +31,9 @@ const Test = () => {
                     .ref("images")
                     .child(image.name)
                     .getDownloadURL()
-                    .then(url =>{
-                        setUrl(url);
+                    .then(downloadURL =>{
+                        console.log('File available at', downloadURL);
+                        setUrl(downloadURL);
                     });
             }
             )
@@ -39,8 +44,11 @@ const Test = () => {
             firebase upload
             <br/>
             {progress && progress}
+            <br/>
             <input type="file" onChange={handleChange} />
+            <br/>
             <button onClick={handleUpload}>Upload</button>
+            <br/>
             {url && <img src={url} alt=""/>}
         </div>
     )

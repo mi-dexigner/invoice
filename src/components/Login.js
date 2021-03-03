@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useState,useEffect } from 'react'
 import { Box, Card, CardContent, Container,Typography,makeStyles, createStyles, Avatar, TextField, Button } from '@material-ui/core';
-import { Link } from 'react-router-dom';
+import { Link ,Redirect} from 'react-router-dom';
+import { auth } from '../firebase';
+import { useStateValue } from '../StateProvider';
+import { actionTypes } from '../reducer';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
     mainWrapper: {
@@ -25,15 +28,52 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
       }
   }));
     const Login = () => {
+      const [email,setEmail] = useState('');
+      const [password,setPassword] = useState('');
+      const [state, disaptch] = useStateValue();
       const classes = useStyles();
-
+     useEffect(() => {
+        const unsubscribe = auth.onAuthStateChanged((authUser) => {
+          console.log("hell")
+          console.log(authUser);
+         
+          if (authUser) {
+            disaptch({
+              type: actionTypes.SET_USER,
+              user:authUser
+          })
+            // <Redirect to={`/`} noThrow />
+          }
+        }); 
+    
+        return unsubscribe;
+      }, []);
     const handleSubmit = (e)=>{
-    e.preventDefault();
-    alert();
+      e.preventDefault();
+     auth
+      .signInWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        var userResponse = userCredential.user;
+        var user = {
+          name : userResponse.displayName,
+  email : userResponse.email,
+  photoUrl : userResponse.photoURL,
+  emailVerified : userResponse.emailVerified,
+  uid : userResponse.uid,
+        }
+        // console.log(user);
+         disaptch({
+          type: actionTypes.SET_USER,
+          user:user
+      }) 
+      })
+      .catch((error) => alert(error));
+
     }
     return (
-        
-            <Box className={classes.mainWrapper} flexWrap="nowrap" alignItems="center" justifyContent="center" display='flex' component="section">
+      //createUserWithEmailAndPassword(email,password)
+        // devs@yopmail.com
+            <Box className={classes.mainWrapper} flexWrap="nowrap" alignitems="center" justifyContent="center" display='flex' component="section">
         <Container maxWidth='sm'>
             <Card>
             <CardContent>
@@ -42,16 +82,34 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
             <form onSubmit={handleSubmit}>
              {/* being email field */}
              <Box id="email" mb={3} component="div">
-             <TextField variant="outlined" label="Email Address" type="email" className={classes.inputField} fullWidth />
+             <TextField 
+             variant="outlined"
+            label="Email Address" 
+            type="email" 
+            value={email}
+            className={classes.inputField} 
+            onChange={(e)=>setEmail(e.target.value)}
+            fullWidth
+            />
              </Box>
              {/* end email field */}
              {/* being password field */}
              <Box id="password" mb={3} component="div">
-             <TextField variant="outlined" label="Password" type="password" className={classes.inputField} fullWidth />
+             <TextField 
+             variant="outlined" 
+             label="Password" 
+             type="password" 
+             value={password}
+             className={classes.inputField}
+             onChange={(e)=>setPassword(e.target.value)}
+             fullWidth
+             />
              </Box>
              {/* end password field */}
               {/* being form submit */}
-             <Button variant="outlined" color="primary" type="submit" className={classes.inputFieldButton} size="large" disableElevation disabled  fullWidth >LogIn</Button>
+             <Button variant="outlined" color="primary" type="submit" 
+             className={classes.inputFieldButton} size="large" 
+             disableElevation disabled={!password}   fullWidth >LogIn</Button>
              {/* end form submit */}
              <Box mt={1}  mb={3} component="div" width={1}>
                  <Link to="/forgot-password">Forget password</Link>

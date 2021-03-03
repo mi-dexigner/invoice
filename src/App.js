@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 import Login from './components/Login';
 import Forgot from './components/Forgot';
-import Test from './pages/Test';
+import Dashboard from './pages/Dashboard';
 import Customer from './pages/Customer/Index';
 import Products from './pages/Catalog/Products/Index';
 import Settings from './pages/Settings';
@@ -27,8 +27,7 @@ const App = () => {
        <CssBaseline />
     <Router>
       <Switch>
-      {/*<Route exact path="/" component={Dashboard} />*/}
-      <Route exact path="/" component={Test} />
+      <Route exact path="/" component={Dashboard} />
       <Route exact path="/customer" component={Customer} />
       <Route exact path="/customer/add" component={CustomerAdd} />
       <Route exact path="/catalog" component={Products} />
