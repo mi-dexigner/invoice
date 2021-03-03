@@ -1,5 +1,6 @@
-import { makeStyles, createStyles,Grid, Typography, Button } from '@material-ui/core'
+import { makeStyles, createStyles,Grid, Typography  } from '@material-ui/core'
 import React from 'react'
+import { Link } from 'react-router-dom';
 import Header from './Header'
 import Sidebar from './Sidebar'
 
@@ -26,7 +27,7 @@ const Layout = ({children,title,url}) => {
                 </Typography>}
              </Grid>
              <Grid item md={6} justify="flex-end" container>
-             {url &&<Button href={url}>Add new</Button>}
+             {url &&<Link  to={url} color="primary">Add new</Link>}
              </Grid>
              </Grid>
            {children}
