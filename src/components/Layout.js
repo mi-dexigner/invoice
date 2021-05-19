@@ -4,7 +4,8 @@ import { Link,Redirect } from 'react-router-dom';
 import Header from './Header'
 import Sidebar from './Sidebar'
 import { useStateValue } from '../StateProvider';
-
+import firebase from "firebase/app";
+import { useHistory } from "react-router-dom"
 const useStyles = makeStyles((theme: Theme) => createStyles({
     pageHeader: {
       borderBottom:'2px solid #027cc9',
@@ -15,14 +16,25 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 
 const Layout = ({children,title,url}) => {
   const [{user}, dispatch] = useStateValue();
+  const history = useHistory()
     const classes = useStyles();
+    const signOut = async () => {
+      try {
+        if (firebase) {
+          await firebase.auth().signOut();
+          history.push("/")
+        }
+      } catch (error) {
+        console.log("error", error);
+      }
+    };
     return (
       <>
-      {!user ? <Redirect to={`/login`} noThrow />:null}
+      {!user ? <Redirect to={`/`} noThrow />:null}
         <main className="wrapper">
             <Sidebar />
            <div className="containArea">
-           <Header />
+           <Header signOut={signOut} user={user} />
            <div className="content">
            <Grid container spacing={3} direction="row" justify="center" alignItems="center" className={classes.pageHeader}>
              <Grid item md={6} justify="flex-start" container>

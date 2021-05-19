@@ -1,9 +1,10 @@
-import React, { useState,useEffect } from 'react'
+import React, { useState } from 'react'
 import { Box, Card, CardContent, Container,Typography,makeStyles, createStyles, Avatar, TextField, Button } from '@material-ui/core';
-import { Link ,Redirect} from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import { auth } from '../firebase';
 import { useStateValue } from '../StateProvider';
 import { actionTypes } from '../reducer';
+
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
     mainWrapper: {
@@ -32,22 +33,6 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
       const [password,setPassword] = useState('');
       const [state, disaptch] = useStateValue();
       const classes = useStyles();
-     useEffect(() => {
-        const unsubscribe = auth.onAuthStateChanged((authUser) => {
-          console.log("hell")
-          console.log(authUser);
-         
-          if (authUser) {
-            disaptch({
-              type: actionTypes.SET_USER,
-              user:authUser
-          })
-            // <Redirect to={`/`} noThrow />
-          }
-        }); 
-    
-        return unsubscribe;
-      }, []);
     const handleSubmit = (e)=>{
       e.preventDefault();
      auth
@@ -62,10 +47,14 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
   uid : userResponse.uid,
         }
         // console.log(user);
+        if(user){
          disaptch({
           type: actionTypes.SET_USER,
           user:user
       }) 
+    
+      //alert('working')
+      }
       })
       .catch((error) => alert(error));
 
@@ -73,7 +62,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     return (
       //createUserWithEmailAndPassword(email,password)
         // devs@yopmail.com
-            <Box className={classes.mainWrapper} flexWrap="nowrap" alignitems="center" justifyContent="center" display='flex' component="section">
+            <Box className={classes.mainWrapper} flexWrap="nowrap"  justifyContent="center" display='flex' component="section">
         <Container maxWidth='sm'>
             <Card>
             <CardContent>

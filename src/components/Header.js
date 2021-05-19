@@ -1,7 +1,7 @@
 import React from 'react'
 import {makeStyles, AppBar, Typography, Button, Toolbar, IconButton } from '@material-ui/core'
 import MenuIcon from '@material-ui/icons/Menu';
-import { useHistory } from "react-router-dom"
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -16,13 +16,9 @@ const useStyles = makeStyles((theme) => ({
   }));
 
  
-const Header = () => {
-    const history = useHistory()
+const Header = ({signOut}) => {
+ 
     const classes = useStyles();
-
-    const handleLogout = ()=>{
-      history.push("/login")
-    }
 
     return (
         <header className={classes.root}>
@@ -32,7 +28,7 @@ const Header = () => {
             <MenuIcon />
           </IconButton>
            <Typography variant="h6" className={classes.title}>InVoice</Typography>
-    <Button color="inherit" onClick={handleLogout}>Logout</Button>
+    <Button color="inherit" onClick={signOut}>Logout</Button>
     </Toolbar>
            </AppBar>
         </header>
