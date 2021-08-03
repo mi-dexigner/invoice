@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     const Login = () => {
       const [email,setEmail] = useState('');
       const [password,setPassword] = useState('');
-      const [state, disaptch] = useStateValue();
+      const [state,dispatch] = useStateValue();
       const classes = useStyles();
     const handleSubmit = (e)=>{
       e.preventDefault();
@@ -46,9 +46,9 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
   emailVerified : userResponse.emailVerified,
   uid : userResponse.uid,
         }
-        // console.log(user);
+        console.log(state);
         if(user){
-         disaptch({
+         dispatch({
           type: actionTypes.SET_USER,
           user:user
       }) 

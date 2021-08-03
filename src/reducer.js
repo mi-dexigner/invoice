@@ -1,5 +1,5 @@
 export const initialState = {
-    user:null,
+    user:JSON.parse(localStorage.getItem("user")) || null,
 };
 
 export const actionTypes = {
@@ -15,6 +15,12 @@ const reducer = (state, action) => {
                 ...state,
                 user: action.user
             }
+            case "LOGIN_SUCCESS":
+                return {
+                  user: action.payload,
+                  isFetching: false,
+                  error: false,
+                };
         default:
             return state;
     }

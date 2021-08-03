@@ -26,7 +26,7 @@ const Dashboard = () => {
               <div className="count">2</div>
                   <div><CategoryIcon/></div>
               </Box>
-          <Typography variant="h6" component="div" alignItems="flex-start">Total Products</Typography>
+          <Typography variant="h6" component="div">Total Products</Typography>
           </Paper>
         </Grid>
         <Grid item md={3}>
@@ -35,7 +35,7 @@ const Dashboard = () => {
                   <div className="count">2</div>
                   <div><GroupRoundedIcon/></div>
               </Box>
-          <Typography variant="h6" component="div" alignItems="flex-start">Total Customers</Typography>
+          <Typography variant="h6" component="div">Total Customers</Typography>
           </Paper>
         </Grid>
         <Grid item md={3}>
@@ -44,7 +44,7 @@ const Dashboard = () => {
               <div className="count">2</div>
                   <div><CreditCardRoundedIcon/></div>
               </Box>
-          <Typography variant="h6" component="div" alignItems="flex-start">Total Estimates</Typography>
+          <Typography variant="h6" component="div">Total Estimates</Typography>
           </Paper>
         </Grid>
         <Grid item md={3}>
@@ -53,7 +53,7 @@ const Dashboard = () => {
               <div className="count">2</div>
                   <div><ReceiptRoundedIcon/></div>
               </Box>
-          <Typography variant="h6" component="div" alignItems="flex-start">Total Invoice</Typography>
+          <Typography variant="h6" component="div" >Total Invoice</Typography>
           </Paper>
         </Grid>
       </Grid>

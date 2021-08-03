@@ -8,13 +8,14 @@ import DashboardRoundedIcon from '@material-ui/icons/DashboardRounded';
 import CategoryIcon from '@material-ui/icons/Category';
 import SidebarItem from './SidebarItem';
 
-const Sidebar = () => {
+const Sidebar = ({user}) => {
+    console.log(user?.email)
     return (
         <aside className="sidebar">
            <div className="sidebar__header">
-           <Avatar alt="Remy Sharp" />
+           <Avatar alt="Remy Sharp" src={user?.photoURL} />
            <h2>Welcome, <br/>
-           <span>John</span>
+           <span>{((user?.displayName)?user?.displayName:user?.email) }</span>
            </h2>
            </div>
            <SidebarItem Icon={DashboardRoundedIcon} title="Dashboard" />

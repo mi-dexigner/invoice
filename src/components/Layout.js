@@ -4,6 +4,7 @@ import { Link,Redirect } from 'react-router-dom';
 import Header from './Header'
 import Sidebar from './Sidebar'
 import { useStateValue } from '../StateProvider';
+import { actionTypes } from '../reducer';
 import firebase from "firebase/app";
 import { useHistory } from "react-router-dom"
 const useStyles = makeStyles((theme: Theme) => createStyles({
@@ -19,10 +20,12 @@ const Layout = ({children,title,url}) => {
   const history = useHistory()
     const classes = useStyles();
     const signOut = async () => {
+      
       try {
+        dispatch({type: actionTypes.SET_USER,user:user});
         if (firebase) {
           await firebase.auth().signOut();
-          history.push("/")
+          history.push("/");
         }
       } catch (error) {
         console.log("error", error);
@@ -32,7 +35,7 @@ const Layout = ({children,title,url}) => {
       <>
       {!user ? <Redirect to={`/`} noThrow />:null}
         <main className="wrapper">
-            <Sidebar />
+            <Sidebar user={user} />
            <div className="containArea">
            <Header signOut={signOut} user={user} />
            <div className="content">

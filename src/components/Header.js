@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
   }));
 
  
-const Header = ({signOut}) => {
+const Header = ({signOut,user}) => {
  
     const classes = useStyles();
 
