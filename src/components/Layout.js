@@ -37,7 +37,7 @@ const Layout = ({children,title,url}) => {
         <main className="wrapper">
             <Sidebar user={user} />
            <div className="containArea">
-           <Header signOut={signOut} user={user} />
+           <Header signOut={signOut}  />
            <div className="content">
            <Grid container spacing={3} direction="row" justify="center" alignItems="center" className={classes.pageHeader}>
              <Grid item md={6} justify="flex-start" container>

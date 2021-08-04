@@ -6,6 +6,7 @@ import ReceiptRoundedIcon from '@material-ui/icons/ReceiptRounded';
 import GroupRoundedIcon from '@material-ui/icons/GroupRounded';
 import DashboardRoundedIcon from '@material-ui/icons/DashboardRounded';
 import CategoryIcon from '@material-ui/icons/Category';
+import PersonIcon from '@material-ui/icons/Person';
 import SidebarItem from './SidebarItem';
 
 const Sidebar = ({user}) => {
@@ -23,6 +24,7 @@ const Sidebar = ({user}) => {
            <SidebarItem Icon={CategoryIcon} title="Catalog" url="/catalog"/>
            <SidebarItem Icon={ReceiptRoundedIcon} title="Billing" />
            <SidebarItem Icon={BarChartRoundedIcon} title="Reports" />
+           <SidebarItem Icon={PersonIcon} title="Profile" url="/profile" />
            <SidebarItem Icon={SettingsRoundedIcon} title="Settings" url="/settings" />
         </aside>
     )

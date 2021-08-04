@@ -115,3 +115,7 @@ body {
   font-weight: 700;
   line-height: 1.65857;
 }
+
+.profile__sec{
+  display: flex;
+}

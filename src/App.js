@@ -14,6 +14,8 @@ import Dashboard from './pages/Dashboard';
 import Customer from './pages/Customer/Index';
 import Products from './pages/Catalog/Products/Index';
 import Settings from './pages/Settings';
+import Profile from './pages/User';
+import UserAdd from './pages/User/UserAdd';
 import CustomerAdd from './pages/Customer/CustomerAdd';
 const THEME = createMuiTheme({
   typography: {
@@ -51,7 +53,9 @@ const App = () => {
       <Route exact path="/customer/add" component={CustomerAdd} />
       <Route exact path="/catalog" component={Products} />
       <Route exact path="/settings" component={Settings} />
+      <Route exact path="/profile" component={Profile} />
       <Route exact path="/forgot-password" component={Forgot} />
+      <Route exact path="/user-create" component={UserAdd} />
       </Switch>
       </Router>
     </MuiThemeProvider>

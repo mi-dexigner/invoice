@@ -9,7 +9,9 @@ import { actionTypes } from '../reducer';
 const useStyles = makeStyles((theme: Theme) => createStyles({
     mainWrapper: {
       height:'100vh',
-      textAlign:'center'
+      textAlign:'center',
+      display:'flex',
+      alignItems:'center',
     },
     logo: {
         width: theme.spacing(8),
