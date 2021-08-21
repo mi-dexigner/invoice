@@ -1,6 +1,5 @@
 import React,{useState} from 'react'
-import {auth} from '../../firebase'
-import db from '../../firebase'
+import firebase from 'firebase'
 import Layout from "../../components/Layout"
 const UserAdd = () => {
     const [email,setEmail] = useState('idre172@gmail.com')
@@ -8,13 +7,11 @@ const UserAdd = () => {
     const [name,setName] = useState('Muhammad Idrees')
 
 const  onSignUp =  async()=>{
-    //console.log(name)
-    //console.log(email)
-    //console.log(password)
-    await auth.createUserWithEmailAndPassword(email,password)
+   
+    await firebase.auth().createUserWithEmailAndPassword(email,password)
     .then((result)=> {
-        db.firestore().collection("users")
-        .doc(auth.currentUser.uid)
+        firebase.firestore().collection("users")
+        .doc(firebase.auth().currentUser.uid)
         .set({
             name,
             email

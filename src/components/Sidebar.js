@@ -10,7 +10,7 @@ import PersonIcon from '@material-ui/icons/Person';
 import SidebarItem from './SidebarItem';
 
 const Sidebar = ({user}) => {
-    console.log(user?.email)
+    //console.log(user?.email)
     return (
         <aside className="sidebar">
            <div className="sidebar__header">
